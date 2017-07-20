@@ -1,30 +1,27 @@
 package com.example.ganesh.myapplication
+
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.support.annotation.Nullable
 import android.widget.Toast
 
 /**
- * Created by ganesh on 7/19/2017.
+ * Created by TutorialsPoint7 on 8/23/2016.
  */
-class MyService {
 
-    class MyService : Service() {
-       override  fun  onBind( intent:Intent?):IBinder? {
-           val b: IBinder? = null
-           return b
-        }
+class MyService : Service() {
+    override fun onBind(intent: Intent): IBinder? {
+        return null
+    }
 
-        override onStartCommand( intent:Intent?,  flags: Int? , startId: Int? ): Int {
-            // Let it continue running until it is stopped.
-            Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show()
-            return START_STICKY
-        }
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        // Let it continue running until it is stopped.
+        Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show()
+        return Service.START_STICKY
+    }
 
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-            Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show()
+    }
 }
